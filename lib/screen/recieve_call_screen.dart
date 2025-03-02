@@ -166,7 +166,9 @@ class _RecieveCallScreenState extends State<RecieveCallScreen> {
         removeOverlay();
       }, callerName, ringSnapshot?.data()['callType']);
     } else {
-      Helpers.showToast("Call Disconnected");
+      if (_overlayEntry!=null && player.state == PlayerState.playing) {
+  Helpers.showToast("Call Disconnected");
+}
       removeOverlay();
     }
   }

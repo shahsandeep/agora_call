@@ -110,7 +110,7 @@ class _AgoraVideoCallState extends State<AgoraVideoCall> {
                 if (snapshot.data!.docs.isNotEmpty) {
                   status = snapshot.data!.docs.first.data()['status'];
                   if (status == 'disconnected') {
-                    Helpers.showToast("Call Disconnected");
+                    // Helpers.showToast("Call Disconnected");
 
                     if (mounted && !_isCallDisconnected) {
                       _isCallDisconnected = true;
