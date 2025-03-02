@@ -9,6 +9,11 @@ A new Flutter project for audio and video calling functionality.
 This project is a starting point for a Flutter application that uses Agora for audio and video calls, Firestore for user information and call status, and an audio player for playing ringtones.
 
 
+### Tech Stack
+
+- **Framework:** Flutter
+- **Real-time Communication:** Agora SDK
+
 ### Flutter Version
 
 This project uses **Flutter version 3.24.3**.
@@ -45,12 +50,19 @@ This project uses **Flutter version 3.24.3**.
 ### Features
 
 - **Audio and Video Calls:** Using Agora SDK for real-time communication.
+- **Audio Calls UI:** Calling UI with mic, speaker, hangup button, and timer on call receive.
+- **Video Calls UI:** Calling UI with camera disable, mic mute, camera flip, and hangup button, on call receive.
 - **Agora RTC Token Generation:** Using for secure call sessions.
 
 - **Ringtone:** Using `audioplayers` package to play ringtones.
 - **User Information and Call Status:** Using Firestore to manage user data and call status.
 - **Real-time Call UI:** Displaying call status and user interface in real-time.
 - **Device Connection Status:** Checking device connection status if it is connected to network or not.
+
+### Tested On
+
+- **Android:**
+- **iOS:** 
 
 ### Dependencies
 
@@ -69,9 +81,25 @@ This project uses **Flutter version 3.24.3**.
 - **Connectivity Wrapper:** ^2.0.0 - To check if the device is connected to a network.
 
 For help getting started with Flutter development, view the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on mobile development, and a full API reference.
+
+
+### APKs
+
+Download the APKs for the Agora Call Application from the following link: [APKs Download](https://drive.google.com/drive/folders/your-apks-drive-link)
+
+
 ### Demo Video
 
 Watch the demo video of the app in action: [Demo Video](https://drive.google.com/file/d/your-demo-video-link/view)
+
+
+### Contact
+
+Thank you for using the Agora Call Application. If you have any questions or need further assistance, feel free to contact me:
+
+- **Name:** Sandeep Shah
+- **Contact Number:** +917500542119
+
 
 
 
