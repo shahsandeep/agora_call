@@ -106,9 +106,12 @@ class _RecieveCallScreenState extends State<RecieveCallScreen> {
       }
     }
 
+
     String? status = ringSnapshot?.data()['status'];
     String? receiverId = ringSnapshot?.data()['receiverId'];
+ 
 
+ 
     if (status == 'ringing' && receiverId == currentUserId) {
       String callerName = ringSnapshot?.data()['callerName'];
 
@@ -146,13 +149,13 @@ class _RecieveCallScreenState extends State<RecieveCallScreen> {
                     isCaller: false,
                   )));
         }
-      }, () {
+      }, () async{
         final String? callerId = ringSnapshot?.data()['callerId'];
         final String? channelId = ringSnapshot?.data()['channelName'];
         final String? receiverId = ringSnapshot?.data()['receiverId'];
         final String? callType = ringSnapshot?.data()['callType'];
         final String? receiverName = ringSnapshot?.data()['receiverName'];
-        FirebaseRepo().createOrUpdateCallDocument(
+       await FirebaseRepo().createOrUpdateCallDocument(
             callerId: callerId ?? "",
             callerName: callerName,
             receiverName: receiverName ?? '',
@@ -162,7 +165,8 @@ class _RecieveCallScreenState extends State<RecieveCallScreen> {
             callType: callType ?? '');
         removeOverlay();
       }, callerName, ringSnapshot?.data()['callType']);
-    } else if (receiverId == currentUserId) {
+    } else {
+      Helpers.showToast("Call Disconnected");
       removeOverlay();
     }
   }

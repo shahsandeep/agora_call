@@ -295,8 +295,8 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
                                           width: 20,
                                         ),
                                         InkWell(
-                                          onTap: () {
-                                            _leave();
+                                          onTap: () async{
+                                         await   _leave();
                                           },
                                           child: Container(
                                             padding: const EdgeInsets.all(10),
@@ -381,10 +381,11 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
     );
   }
 
-  void _leave() {
-    Helpers.showToast("Call Disconnected");
+  Future<void> _leave() async {
+
+
     _isCallDisconnected = true;
-    FirebaseRepo().createOrUpdateCallDocument(
+    await FirebaseRepo().createOrUpdateCallDocument(
         callerId: currentUserId,
         callerName: callerName,
         receiverName: receiverName,
@@ -395,10 +396,11 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
     _isJoined = false;
     _remoteUid = null;
     agoraEngine?.leaveChannel();
-    if (mounted) {
+
+    timer?.cancel();
+         if (mounted) {
       Navigator.pop(context);
     }
-    timer?.cancel();
   }
 
   _startTimer() {
@@ -409,7 +411,7 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
 
   @override
   void dispose() {
-    _leave();
+    // _leave();
     agoraEngine?.release();
     super.dispose();
   }
