@@ -49,6 +49,7 @@ dependencies:
 
 
   agora_rtm: ^1.5.9
+  connectivity_wrapper: ^1.2.6
 
 
 

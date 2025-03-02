@@ -9,6 +9,7 @@
 #include <agora_rtc_engine/agora_rtc_engine_plugin.h>
 #include <audioplayers_windows/audioplayers_windows_plugin.h>
 #include <cloud_firestore/cloud_firestore_plugin_c_api.h>
+#include <connectivity_plus/connectivity_plus_windows_plugin.h>
 #include <firebase_core/firebase_core_plugin_c_api.h>
 #include <firebase_storage/firebase_storage_plugin_c_api.h>
 #include <iris_method_channel/iris_method_channel_plugin_c_api.h>
@@ -21,6 +22,8 @@ void RegisterPlugins(flutter::PluginRegistry* registry) {
       registry->GetRegistrarForPlugin("AudioplayersWindowsPlugin"));
   CloudFirestorePluginCApiRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("CloudFirestorePluginCApi"));
+  ConnectivityPlusWindowsPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("ConnectivityPlusWindowsPlugin"));
   FirebaseCorePluginCApiRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("FirebaseCorePluginCApi"));
   FirebaseStoragePluginCApiRegisterWithRegistrar(
