@@ -9,6 +9,11 @@ A new Flutter project for audio and video calling functionality.
 This project is a starting point for a Flutter application that uses Agora for audio and video calls, Firestore for user information and call status, and an audio player for playing ringtones.
 
 
+### Repository URL
+
+The source code for this project is available at: [Agora Call Repository](https://github.com/shahsandeep/agora_call.git)
+
+
 ### Tech Stack
 
 - **Framework:** Flutter
@@ -22,7 +27,7 @@ This project uses **Flutter version 3.24.3**.
 
 1. **Clone the repository:**
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/shahsandeep/agora_call.git
     cd agora_call
     ```
 
@@ -85,12 +90,12 @@ For help getting started with Flutter development, view the [online documentatio
 
 ### APKs
 
-Download the APKs for the Agora Call Application from the following link: [APKs Download](https://drive.google.com/drive/folders/your-apks-drive-link)
+Download the APKs for the Agora Call Application from the following link: [APKs Download](https://drive.google.com/drive/folders/1J0wS99PJ4-DQOJeWM0whMsR4JObqZl1K?usp=sharing)
 
 
 ### Demo Video
 
-Watch the demo video of the app in action: [Demo Video](https://drive.google.com/file/d/your-demo-video-link/view)
+Watch the demo video of the app in action: [Demo Video](https://drive.google.com/drive/folders/1zKFFR-RUPCrEeGo9b9s7cnZAZgDuZYiT?usp=sharing)
 
 
 ### Contact
