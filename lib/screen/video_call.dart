@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:agora_call/models/agora_model.dart';
-import 'package:agora_call/provider/call_provider.dart';
+import 'package:agora_call/service/firebase_service.dart';
 import 'package:agora_call/utils/const/const.dart';
 import 'package:agora_call/utils/helper/helper.dart';
 import 'package:agora_uikit/agora_uikit.dart';
@@ -31,7 +31,7 @@ class AgoraVideoCall extends StatefulWidget {
 class _AgoraVideoCallState extends State<AgoraVideoCall> {
   AgoraClient? client;
   Timer? timer;
-  final CallRepo callProvider = CallRepo();
+  final FirebaseRepo callProvider = FirebaseRepo();
 
   bool isCaller = true;
   String currentUserId = "1";
@@ -69,7 +69,7 @@ class _AgoraVideoCallState extends State<AgoraVideoCall> {
       callStatus = 'ringing';
     }
 
-    CallRepo().createOrUpdateCallDocument(
+    FirebaseRepo().createOrUpdateCallDocument(
         callerId: currentUserId,
         callerName: callerName,
         receiverName: receiverName,
@@ -135,7 +135,7 @@ class _AgoraVideoCallState extends State<AgoraVideoCall> {
                                   client: client!,
                                   onDisconnect: () {
                                     _isCallDisconnected = true;
-                                    CallRepo().createOrUpdateCallDocument(
+                                    FirebaseRepo().createOrUpdateCallDocument(
                                         callerId: currentUserId,
                                         receiverName: receiverName,
                                         callerName: callerName,

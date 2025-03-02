@@ -8,7 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../provider/call_provider.dart';
+import '../service/firebase_service.dart';
 import '../utils/helper/helper.dart';
 
 class AgoraAudioCall extends StatefulWidget {
@@ -37,7 +37,7 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
 
   ValueNotifier<String> notifyText = ValueNotifier("Connecting");
 
-  final CallRepo callProvider = CallRepo();
+  final FirebaseRepo callProvider = FirebaseRepo();
   String callType = 'voice';
 
   bool isCaller = true;
@@ -85,7 +85,7 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
       callStatus = 'ringing';
     }
 
-    CallRepo().createOrUpdateCallDocument(
+    FirebaseRepo().createOrUpdateCallDocument(
         callerId: currentUserId,
         callerName: callerName,
         receiverName: receiverName,
@@ -146,9 +146,10 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
                   status = snapshot.data!.docs.first.data()['status'];
                   if (status == 'disconnected') {
                     Helpers.showToast("Call Disconnected");
+                      Navigator.pop(context);
                     if (mounted && !_isCallDisconnected) {
                       _isCallDisconnected = true;
-                      Navigator.pop(context);
+                    
                     }
                   }
                 }
@@ -383,7 +384,7 @@ class _AgoraAudioCallState extends State<AgoraAudioCall> {
   void _leave() {
     Helpers.showToast("Call Disconnected");
     _isCallDisconnected = true;
-    CallRepo().createOrUpdateCallDocument(
+    FirebaseRepo().createOrUpdateCallDocument(
         callerId: currentUserId,
         callerName: callerName,
         receiverName: receiverName,

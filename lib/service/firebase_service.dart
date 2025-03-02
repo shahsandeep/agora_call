@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class CallRepo {
+class FirebaseRepo {
 
-  CallRepo._privateConstructor();
+  FirebaseRepo._privateConstructor();
 
  
-  static final CallRepo _instance = CallRepo._privateConstructor();
+  static final FirebaseRepo _instance = FirebaseRepo._privateConstructor();
 
 
-  factory CallRepo() {
+  factory FirebaseRepo() {
     return _instance;
   }
 

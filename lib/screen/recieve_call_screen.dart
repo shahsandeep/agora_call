@@ -1,4 +1,4 @@
-import 'package:agora_call/provider/call_provider.dart';
+import 'package:agora_call/service/firebase_service.dart';
 import 'package:agora_call/screen/audio_call.dart';
 
 import 'package:agora_call/screen/video_call.dart';
@@ -152,7 +152,7 @@ class _RecieveCallScreenState extends State<RecieveCallScreen> {
         final String? receiverId = ringSnapshot?.data()['receiverId'];
         final String? callType = ringSnapshot?.data()['callType'];
         final String? receiverName = ringSnapshot?.data()['receiverName'];
-        CallRepo().createOrUpdateCallDocument(
+        FirebaseRepo().createOrUpdateCallDocument(
             callerId: callerId ?? "",
             callerName: callerName,
             receiverName: receiverName ?? '',
@@ -170,7 +170,7 @@ class _RecieveCallScreenState extends State<RecieveCallScreen> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-      stream: CallRepo().videoCallStream(
+      stream: FirebaseRepo().videoCallStream(
         isCaller: false,
         isFromMain: true,
       ),
